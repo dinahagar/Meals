@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
+
+.categories{
+    margin-top: 60px;
+    font-family: 'Lobster', cursive;
+
+    h1{
+        text-align: center;
+        margin-bottom: 30px;
+        color: darkgreen;
+        font-weight: bolder;
+        text-shadow: 2px 2px yellowgreen;
+        font-size: 50px;
+    }
+
+    &-content{
+        display: flex;
+        flex-wrap: wrap;
+        box-shadow: 4px 5px 10px 3px grey;
+        margin-bottom: 30px;
+        border-radius: 20px;
+        padding: 40px 5px;
+    }
+
+    &-div{
+        text-align: center;
+        margin-bottom: 20px;
+
+        img{
+            width: 80%;
+            transition: all 0.2s ease;
+
+            &:hover{
+                width: 95%;
+                transform: scale(1.1);
+            }
+        }
+
+        h3{
+            color: darkblue;
+            font-weight: bold;
+        }
+    }
+}

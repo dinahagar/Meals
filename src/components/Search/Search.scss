@@ -1,0 +1,42 @@
+.search-page{
+    padding: 50px 0px;
+    background-color: #d3cecb;
+
+    &-input{
+        text-align: center;
+
+        input{
+            font-size: 20px;
+            width: 600px;
+            padding: 10px 20px;
+            border: solid 4px chocolate;
+            border-radius: 40px;
+            outline: none;
+            color: darkgreen;
+            font-weight: bold;
+
+            &::placeholder{
+                color: darkgreen;
+                opacity: 0.7;
+            }
+        }
+    }
+
+    &-content{
+        display: flex;
+        flex-wrap: wrap;
+
+        &-div{
+            img{
+                width: 30%;
+            }
+        }            
+
+        h2{
+            font-size: 400px;
+            color: chocolate;
+            justify-content: center;
+            margin: auto;
+        }
+    }
+}
