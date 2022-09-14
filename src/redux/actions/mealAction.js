@@ -1,5 +1,5 @@
 import axios from "axios"
-import { MEALS_DATA, MEALS_ERROR, MEALS_LOADING, SEARCH_MEAL } from "./types"
+import { MEALS_DATA, MEALS_ERROR, MEALS_LOADING, MEAL_DETAILS, RANDOM_MEAL, SEARCH_MEAL } from "./types"
 
 export const mealLoading = () => {
     return {
@@ -21,6 +21,20 @@ export const mealError = () => {
 export const searchMeal = (data) => {
     return {
         type : SEARCH_MEAL,
+        payload : data
+    }
+}
+
+export const randomMeal = (data) => {
+    return {
+        type : RANDOM_MEAL,
+        payload : data
+    }
+}
+
+export const mealDetails = (data) => {
+    return {
+        type : MEAL_DETAILS,
         payload : data
     }
 }
@@ -49,6 +63,38 @@ export const getSearch = (inputText) => {
     return axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${inputText}`)
     .then(response => {
         dispatch(searchMeal(response.data))
+    })
+    .catch(err => {
+        dispatch(mealError(err))
+        console.log(err);
+    })
+    }
+}
+
+export const getRandom = () => {
+    return (dispatch) => {
+
+        dispatch(mealLoading())
+
+    return axios.get(`https://www.themealdb.com/api/json/v1/1/random.php`)
+    .then(response => {
+        dispatch(randomMeal(response.data))
+    })
+    .catch(err => {
+        dispatch(mealError(err))
+        console.log(err);
+    })
+    }
+}
+
+export const getDetails = (id) => {
+    return (dispatch) => {
+
+        dispatch(mealLoading())
+
+    return axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+    .then(response => {
+        dispatch(mealDetails(response.data))
     })
     .catch(err => {
         dispatch(mealError(err))

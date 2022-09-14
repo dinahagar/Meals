@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import Search from './components/Search/Search';
 import Random from './components/RandomPage/Random';
 import { BrowserRouter as Router , Routes , Route } from 'react-router-dom';
+import MealDetails from './components/MealDetails/MealDetails';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/search' element={<Search />} />
           <Route path='/random' element={<Random />} />
+          <Route path='/mealdetails' element={<MealDetails />} />
         </Routes>
         <Footer />
       </Router>

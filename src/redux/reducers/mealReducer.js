@@ -1,10 +1,12 @@
-import { MEALS_DATA, MEALS_ERROR, MEALS_LOADING, SEARCH_MEAL } from "../actions/types";
+import { MEALS_DATA, MEALS_ERROR, MEALS_LOADING, MEAL_DETAILS, RANDOM_MEAL, SEARCH_MEAL } from "../actions/types";
 
 const initialState = {
     meals : [] ,
+    search : [] ,
+    random : [],
+    details : [],
     loading : false , 
     error : null,
-    search : [] ,
 }
 
 export const mealReducer = ( state = initialState , action ) => {
@@ -17,6 +19,10 @@ export const mealReducer = ( state = initialState , action ) => {
             return { ...state , loading : false , error : "" }
         case SEARCH_MEAL :
             return { ...state , loading : false , search : action.payload }
+        case RANDOM_MEAL :
+            return { ...state , loading : false , random : action.payload }
+        case MEAL_DETAILS :
+            return { ...state , loading : false , details : action.payload }
 
         default:
             return state;

@@ -26,7 +26,7 @@ const Home = () => {
                       <span><FontAwesomeIcon icon={faFaceGrinWide} /></span> 
                     </p>  
                     <p className='third'>If you are confused, you can try with a random meal 
-                      <span><FontAwesomeIcon icon={faHandPointDown} /></span>
+                      <span><FontAwesomeIcon icon={faHandPointDown} bounce /></span>
                     </p>  
                     <Link to="/random">
                       <button>Random

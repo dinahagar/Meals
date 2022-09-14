@@ -1,0 +1,95 @@
+.random{
+    text-align: center;
+    background-color: #d3cecb;
+    padding: 30px 0px 50px 0px;
+
+    &-content{
+        border: solid 1px transparent;
+        margin-left: 10%;
+        width: 80%;
+        box-shadow: 4px 5px 10px 3px grey;
+        border-radius: 30px;
+        padding: 50px 20px;
+
+        img{
+            width: 40%;
+            border-radius: 30px;
+            box-shadow: 0px 5px 10px 3px grey;
+        }
+
+        h1{
+            color: darkgreen;
+            font-size: 60px;
+            margin: 30px 0px;
+        }
+
+        h2{
+            color: chocolate;
+            font-size: 40px;
+        }
+
+        &-instructions{
+            button{
+                font-size: 35px;
+                color: #d3cecb;
+                background: darkgreen;
+                margin: 30px 0px;    
+
+                &:hover{
+                    color: chocolate !important;
+                    background: darkgreen !important;
+                }
+            }
+
+            div{
+                .instructions-body{
+                    background-color: chocolate;
+                    width: 80%;
+                    margin-left: 10%;
+
+                    p{
+                        color: white;
+                        font-size: 22px;
+                        line-height: 35px;
+                        word-spacing: 6px;
+                        letter-spacing: 2px;
+                    }
+                }
+            }
+        }
+
+        &-btns{
+            margin: 30px 0px;
+            display: flex;
+            justify-content: space-around;
+
+            .video{
+                font-size: 30px;
+                border-radius: 50px;
+                border-color: transparent;
+                background-color: chocolate;
+                color: #fff;
+                padding: 5px 30px;
+
+                span{
+                    margin-left: 10px;
+                    color: darkgreen;
+                }
+            }
+
+            .change{
+                font-size: 30px;
+                border-radius: 50px;
+                border-color: transparent;
+                background-color: chocolate;
+                color: #fff;
+                padding: 5px 30px;
+
+                span{
+                    margin-left: 10px;
+                    color: darkgreen;
+                }
+            }
+        }
+    }
+}

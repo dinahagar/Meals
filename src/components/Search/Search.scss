@@ -6,11 +6,11 @@
         text-align: center;
 
         input{
-            font-size: 20px;
+            font-size: 25px;
             width: 600px;
             padding: 10px 20px;
             border: solid 4px chocolate;
-            border-radius: 40px;
+            border-radius: 50px;
             outline: none;
             color: darkgreen;
             font-weight: bold;
@@ -25,12 +25,64 @@
     &-content{
         display: flex;
         flex-wrap: wrap;
+        padding: 50px 50px;
 
         &-div{
+            border: solid 1px transparent;
+            width: 250px;
+            justify-content: space-between;
+            margin: auto;
+            margin-bottom: 30px;
+            height: 430px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 10px 3px grey;
+            padding: 5px;
+
             img{
-                width: 30%;
+                width: 100%;
+                border-radius: 15px;
             }
-        }            
+
+            h3{
+                text-align: center;
+                color: darkgreen;
+                font-weight: bold;
+                margin-top: 12px;
+            }
+
+            h4{
+                text-align: center;
+                color: chocolate;
+                font-weight: bold;
+            }
+
+            &-btns{
+                display: flex;
+                justify-content: space-around;
+                font-size: 25px;
+                margin-top: 25px;
+                color: darkgreen;
+                align-items: center;
+
+                .info{
+                    cursor: pointer;
+                }
+
+                .save{
+                    cursor: pointer;
+                }
+            }
+        }  
+        
+        h1{
+            color: darkgreen;
+            justify-content: center;
+            margin: auto;
+
+            span{
+                color: chocolate;
+            }
+        }
 
         h2{
             font-size: 400px;

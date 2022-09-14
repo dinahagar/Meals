@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { getSearch } from '../../redux/actions/mealAction';
+import { getDetails, getSearch } from '../../redux/actions/mealAction';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Search.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCookieBite } from '@fortawesome/free-solid-svg-icons';
+import { faCookieBite , faCircleInfo , faBookmark  , faFaceFrownOpen } from '@fortawesome/free-solid-svg-icons';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Search = () => {
 
@@ -14,10 +15,19 @@ const Search = () => {
   console.log(searchMeals);
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(getSearch(inputText))
   }, [inputText])
+
+  const handleDetails = (meal) => {
+    navigate("/mealdetails" , {
+      state : {
+        id: meal.idMeal
+      }
+    })
+  }
 
   return (
     <div className='search-page'>
@@ -33,14 +43,20 @@ const Search = () => {
     
       <div className='search-page-content'>
         {searchMeals && inputText ? 
-          (searchMeals.meals?.map(meal => (
+          (searchMeals.meals?.length > 0 ? (searchMeals.meals?.map(meal => (
             <div className='search-page-content-div' key={meal.idMeal}>
               <img src={meal.strMealThumb} />
-              <h3>{meal.strMeal}</h3>
-              <h5>{meal.strCategory}</h5>
+              <h3>{meal.strMeal.length > 30 ? `${meal.strMeal.substring(0, 33)}...` : meal.strMeal}</h3>
+              <h4>" {meal.strCategory} "</h4>
+              <div className='search-page-content-div-btns'>
+                <FontAwesomeIcon icon={faCircleInfo} className="info" onClick={()=>handleDetails(meal)}/>
+                <FontAwesomeIcon icon={faBookmark} className="save" />
+              </div>
             </div>
-          ))) : 
-          (<h2><FontAwesomeIcon icon={faCookieBite} fade /></h2>)
+          ))) : (
+            <h1>No match <span><FontAwesomeIcon icon={faFaceFrownOpen} /></span> Try again !</h1>
+            )) 
+          : (<h2><FontAwesomeIcon icon={faCookieBite} fade /></h2>)
         }
       </div>
 
