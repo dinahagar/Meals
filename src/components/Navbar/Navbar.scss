@@ -11,10 +11,20 @@
         color: chocolate;
     }
 
-    .search{
+    &-right{
         float: right;
-        font-size: 25px;
-        padding-top: 6px;
-        color: darkgreen;
+
+        .favourites{
+            font-size: 25px;
+            padding-top: 6px;
+            color: darkred;
+        }
+
+        .search{
+            font-size: 25px;
+            padding-top: 6px;
+            color: darkgreen;
+            margin-left: 20px;
+        }
     }
 }

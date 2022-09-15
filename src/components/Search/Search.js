@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { getDetails, getSearch } from '../../redux/actions/mealAction';
+import { getSearch } from '../../redux/actions/mealAction';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Search.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCookieBite , faCircleInfo , faBookmark  , faFaceFrownOpen } from '@fortawesome/free-solid-svg-icons';
-import { Link, useNavigate } from 'react-router-dom';
+import { faCookieBite , faCircleInfo , faHeart  , faFaceFrownOpen } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
 
@@ -50,7 +50,7 @@ const Search = () => {
               <h4>" {meal.strCategory} "</h4>
               <div className='search-page-content-div-btns'>
                 <FontAwesomeIcon icon={faCircleInfo} className="info" onClick={()=>handleDetails(meal)}/>
-                <FontAwesomeIcon icon={faBookmark} className="save" />
+                <FontAwesomeIcon icon={faHeart} className="save" />
               </div>
             </div>
           ))) : (

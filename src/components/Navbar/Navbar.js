@@ -1,7 +1,7 @@
 import React from 'react'
 import './Navbar.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass , faCookieBite } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass , faCookieBite , faHeart} from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -12,11 +12,18 @@ const Navbar = () => {
           <FontAwesomeIcon icon={faCookieBite} />
         </span>
       </Link>
-      <Link to="/search">
-        <span className='search'>
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
-        </span>
-      </Link>
+      <div className='navbar-right'>
+        <Link to="/favourites">
+          <span className='favourites'>
+            <FontAwesomeIcon icon={faHeart} />
+          </span>
+        </Link>
+        <Link to="/search">
+          <span className='search'>
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </span>
+        </Link>
+      </div>
     </div>
   )
 }

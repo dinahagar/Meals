@@ -4,6 +4,9 @@ import { useLocation } from 'react-router';
 import { getDetails } from '../../redux/actions/mealAction';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import './MealDetails.scss'
 
 const MealDetails = () => {
 
@@ -19,17 +22,18 @@ const MealDetails = () => {
   }, [])
   
   return (
-    <div>
+    <div className='details'>
       {details.meals?.map(meal => (
-        <div key={meal.idMeal}>
+        <div key={meal.idMeal} className="details-content">
           <img src={meal.strMealThumb} />
           <h1>{meal.strMeal}</h1>
-          <h2>{meal.strCategory}</h2>
-          <h4>{meal.strArea}</h4>
+          <h2>" {meal.strCategory} "</h2>
+          <h4>( {meal.strArea} ) <span><FontAwesomeIcon icon={faHeart} /></span> </h4>
 
-          {/*insructions model */}
-          <div>
-              <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          {/*insructions*/}
+          <div className='details-content-btn'>
+            <div className='details-content-btn-insructions'>
+              <button type="button" className="btn inst" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Instructions
               </button>
 
@@ -37,7 +41,7 @@ const MealDetails = () => {
                 <div className="modal-dialog">
                   <div className="modal-content">
                     <div className="modal-header">
-                      <h5 className="modal-title" id="exampleModalLabel">Instructions</h5>
+                      <h2 className="modal-title" id="exampleModalLabel">Instructions</h2>
                       <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
@@ -48,29 +52,38 @@ const MealDetails = () => {
               </div>
             </div>
 
-            {/*Ingredients */}
+          {/*Ingredients*/}
 
-            <div className='details-content-Ingredients'>
-              <button className="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"   aria-controls="collapseExample">
-                Ingredients
-              </button>
+          <div className='details-content-btn-Ingredients'>
+            <button type="button" className="btn ingr" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              Ingredients
+            </button>
 
-              <div className="collapse" id="collapseExample">
-                <div className="card card-body Ingredients-body">
-                  <p>{meal.strIngredient1} = {meal.strMeasure1}</p>
-                  <p>{meal.strIngredient2} = {meal.strMeasure2}</p>
-                  <p>{meal.strIngredient3} = {meal.strMeasure3}</p>
-                  <p>{meal.strIngredient4} = {meal.strMeasure4}</p>
-                  <p>{meal.strIngredient5} = {meal.strMeasure5}</p>
-                  <p>{meal.strIngredient6} = {meal.strMeasure6}</p>
-                  <p>{meal.strIngredient7} = {meal.strMeasure7}</p>
-                  <p>{meal.strIngredient8} = {meal.strMeasure8}</p>
-                  <p>{meal.strIngredient9} = {meal.strMeasure9}</p>
-                  <p>{meal.strIngredient10} = {meal.strMeasure10}</p>
+            <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h2 className="modal-title" id="staticBackdropLabel">Ingredients</h2>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div className="modal-body">
+                    <p>{meal.strIngredient1} = {meal.strMeasure1}</p>
+                    <p>{meal.strIngredient2} = {meal.strMeasure2}</p>
+                    <p>{meal.strIngredient3} = {meal.strMeasure3}</p>
+                    <p>{meal.strIngredient4} = {meal.strMeasure4}</p>
+                    <p>{meal.strIngredient5} = {meal.strMeasure5}</p>
+                    <p>{meal.strIngredient6} = {meal.strMeasure6}</p>
+                    <p>{meal.strIngredient7} = {meal.strMeasure7}</p>
+                    <p>{meal.strIngredient8} = {meal.strMeasure8}</p>
+                    <p>{meal.strIngredient9} = {meal.strMeasure9}</p>
+                    <p>{meal.strIngredient10} = {meal.strMeasure10}</p>
+                  </div>
                 </div>
               </div>
-
             </div>
+          </div>
+
+          </div>
         </div> 
       ))}
     </div>
@@ -78,3 +91,14 @@ const MealDetails = () => {
 }
 
 export default MealDetails
+
+{/**<p>{meal.strIngredient1} = {meal.strMeasure1}</p>
+                      <p>{meal.strIngredient2} = {meal.strMeasure2}</p>
+                      <p>{meal.strIngredient3} = {meal.strMeasure3}</p>
+                      <p>{meal.strIngredient4} = {meal.strMeasure4}</p>
+                      <p>{meal.strIngredient5} = {meal.strMeasure5}</p>
+                      <p>{meal.strIngredient6} = {meal.strMeasure6}</p>
+                      <p>{meal.strIngredient7} = {meal.strMeasure7}</p>
+                      <p>{meal.strIngredient8} = {meal.strMeasure8}</p>
+                      <p>{meal.strIngredient9} = {meal.strMeasure9}</p>
+                      <p>{meal.strIngredient10} = {meal.strMeasure10}</p> */}
