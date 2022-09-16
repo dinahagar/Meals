@@ -1,0 +1,39 @@
+.filter{
+    padding: 0px 50px 70px 50px;
+    background-color: #d3cecb;
+
+    h1{
+        color: darkgreen;
+        font-size: 60px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    &-div{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        &-content{
+            width: 350px;
+            border: solid 1px transparent;
+            border-radius: 20px;
+            box-shadow: 0px 5px 10px 3px grey;
+            padding: 5px;
+            text-align: center;
+            margin: 20px 10px;
+            background-color: #fff;
+            cursor: pointer;
+    
+            img{
+                width: 100%;
+                border-radius: 20px;
+            }
+    
+            h2{
+                color: darkgreen;
+                margin-top: 15px;
+            }
+        }
+    }
+}

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
 import { getCategoriesFilter } from '../../redux/actions/mealAction'
+import './CategoriesFilter.scss'
 
 const CategoriesFilter = () => {
 
@@ -18,18 +19,21 @@ const CategoriesFilter = () => {
     }, [])
     
   return (
-    <div>
-        {categories_filter ? 
-        
-            (categories_filter.meals?.map(meal => (
-                <div key={meal.idMeal}>
-                    <img src={meal.strMealThumb}/>
-                    <h2>{meal.strMeal}</h2>
-                </div>
-            ))) 
-            : 
-            (<h1>Not available now !!!</h1>)
-        }
+    <div className='filter'>
+        <h1>{category}</h1>
+        <div className='filter-div'>
+            {categories_filter ? 
+            
+                (categories_filter.meals?.map(meal => (
+                    <div key={meal.idMeal} className="filter-div-content" >
+                        <img src={meal.strMealThumb}/>
+                        <h2>{meal.strMeal}</h2>
+                    </div>
+                ))) 
+                : 
+                (<h1 className='not-filter'>Not available now !!!</h1>)
+            }
+        </div>
     </div>
   )
 }
