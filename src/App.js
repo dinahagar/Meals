@@ -7,6 +7,7 @@ import Random from './components/RandomPage/Random';
 import { BrowserRouter as Router , Routes , Route } from 'react-router-dom';
 import MealDetails from './components/MealDetails/MealDetails';
 import Favourites from './components/favourites/Favourites';
+import CategoriesFilter from './components/categories-filter/CategoriesFilter';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/random' element={<Random />} />
           <Route path='/mealdetails' element={<MealDetails />} />
           <Route path='/favourites' element={<Favourites />} />
+          <Route path='/categoriesfilter' element={<CategoriesFilter />} />
         </Routes>
         <Footer />
       </Router>

@@ -1,5 +1,5 @@
 import axios from "axios"
-import { MEALS_DATA, MEALS_ERROR, MEALS_LOADING, MEAL_DETAILS, RANDOM_MEAL, SEARCH_MEAL } from "./types"
+import { CATEGORIES_FILTER, MEALS_DATA, MEALS_ERROR, MEALS_LOADING, MEAL_DETAILS, RANDOM_MEAL, SEARCH_MEAL } from "./types"
 
 export const mealLoading = () => {
     return {
@@ -35,6 +35,13 @@ export const randomMeal = (data) => {
 export const mealDetails = (data) => {
     return {
         type : MEAL_DETAILS,
+        payload : data
+    }
+}
+
+export const categoriesFilter = (data) => {
+    return {
+        type : CATEGORIES_FILTER,
         payload : data
     }
 }
@@ -95,6 +102,21 @@ export const getDetails = (id) => {
     return axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
     .then(response => {
         dispatch(mealDetails(response.data))
+    })
+    .catch(err => {
+        dispatch(mealError(err))
+        console.log(err);
+    })
+    }
+}
+
+export const getCategoriesFilter = (category) => {
+    return (dispatch) => {
+        dispatch(mealLoading())
+
+    return axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
+    .then(response => {
+        dispatch(categoriesFilter(response.data))
     })
     .catch(err => {
         dispatch(mealError(err))

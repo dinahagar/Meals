@@ -7,3 +7,5 @@ export const SEARCH_MEAL = 'SEARCH_MEAL'
 export const RANDOM_MEAL = 'RANDOM_MEAL'
 
 export const MEAL_DETAILS = 'MEAL_DETAILS'
+
+export const CATEGORIES_FILTER = 'CATEGORIES_FILTER'
