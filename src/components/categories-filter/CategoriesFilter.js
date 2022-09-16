@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useLocation } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 import { getCategoriesFilter } from '../../redux/actions/mealAction'
 import './CategoriesFilter.scss'
 
@@ -13,10 +13,19 @@ const CategoriesFilter = () => {
     console.log(categories_filter);
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     useEffect(() => {
       dispatch(getCategoriesFilter(category))
     }, [])
+
+    const handleFilterDetails = (meal) => {
+        navigate("/mealdetails" , {
+            state : {
+                id : meal.idMeal
+            }
+        })
+    }
     
   return (
     <div className='filter'>
@@ -25,7 +34,7 @@ const CategoriesFilter = () => {
             {categories_filter ? 
             
                 (categories_filter.meals?.map(meal => (
-                    <div key={meal.idMeal} className="filter-div-content" >
+                    <div key={meal.idMeal} className="filter-div-content" onClick={() => handleFilterDetails(meal)} >
                         <img src={meal.strMealThumb}/>
                         <h2>{meal.strMeal}</h2>
                     </div>
